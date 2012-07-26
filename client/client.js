@@ -42,7 +42,6 @@ Meteor.startup(function(){
   {
     Meteor.autosubscribe(function() {
       Meteor.subscribe("trending_polls");
-      Meteor.subscribe("trending");
     });
     Session.set('page','create_poll');
   }
@@ -52,7 +51,7 @@ Template.maincontrol.page_is = function(page){
   return Session.get('page') == page;
 }
 
-Template.create_poll.trendingpolls = function(){ console.log('here'); return Trending.find({votes:{$gt:0}},{sort:{votes:-1}}); }
+Template.create_poll.trendingpolls = function(){ return Polls.find(); }
 Template.create_poll.events = {
   'click #startpoll':function(){
     var name = $('#pollname').val();
@@ -68,9 +67,9 @@ Template.create_poll.events = {
   }
 };
 
-Template.trending_item.poll_name = function(){ return Polls.findOne({_id:this.poll}).name; }
-Template.trending_item.poll_opt1 = function(){ return Polls.findOne({_id:this.poll}).option1; }
-Template.trending_item.poll_opt2 = function(){ return Polls.findOne({_id:this.poll}).option2; }
+Template.trending_item.poll_name = function(){ return this.name; }
+Template.trending_item.poll_opt1 = function(){ return this.option1; }
+Template.trending_item.poll_opt2 = function(){ return this.option2; }
 
 
 Template.vote_poll_top.poll_name = function(){ return current_poll.name; }

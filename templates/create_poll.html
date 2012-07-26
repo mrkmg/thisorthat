@@ -8,16 +8,14 @@
     <br />
     <br />
     <h3>Trending Polls Right Now</h3>
-    <div style="width:600px; text-align: left;">
-    <ol>
+    <div style="width:600px;">
     {{#each trendingpolls}}
         {{> trending_item}}
     {{/each}}
-    <ol>
     </div>
     </center>
 </template>
 
 <template name="trending_item">
-    <li><a href="/{{poll}}">{{poll_name}}?</a><br /><b>{{poll_opt1}}</b> or <b>{{poll_opt2}}</b></li>
+    <a href="/{{_id}}" style="color:black; text-decoration: none;"><div class="trending_poll">{{poll_name}}?<br /><b>{{poll_opt1}}</b> or <b>{{poll_opt2}}</b></div></a>
 </template>

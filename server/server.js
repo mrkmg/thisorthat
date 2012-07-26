@@ -41,6 +41,11 @@ Meteor.startup(function () {
     insertMyVote:function(option,poll,voter){
       if(Voters.find({_id:voter}).count()==1)
       {
+        if(Trending.find({poll:poll}).count() == 0)
+        {
+          var count = 1+Votes.find({poll:poll}).count();
+          Trending.insert({poll:poll,votes:1});
+        }
         Trending.update({poll:poll},{$inc:{votes:1}});
         Votes.remove({poll:poll,voter:voter});
         return Votes.insert({option:option,poll:poll,voter:voter});
@@ -70,16 +75,11 @@ Meteor.startup(function () {
     }
   });
   
-  Meteor.setInterval(function(){
+  var updateTrends = function(){
     Trending.update({},{$inc:{votes:-1}},true);
-  },1800000);
-  
-  Polls.find().forEach(function(item){
-    if(Trending.find({poll:item._id}).count() == 0)
-    {
-      var count = 1+Votes.find({poll:item._id}).count();
-      Trending.insert({poll:item._id,votes:count});
-    }
-  });
+    Trending.remove({votes:{$lt:1}});
+  }
+  updateTrends();
+  Meteor.setInterval(updateTrends,300000);
   
 });

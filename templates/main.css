@@ -55,3 +55,12 @@ input[type=text]
     top:0px;
     right:0px;
 }
+
+.trending_poll
+{
+    margin:5px;
+    padding:3px;
+    background: #D3E9FF;
+    border-radius: 3px;
+    text-align: center;
+}
