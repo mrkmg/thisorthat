@@ -1,0 +1,57 @@
+/* CSS declarations go here */
+a:link, a:visited, a:hover, a:active { color:#0051F4; }
+
+input[type=text]
+{
+    border-top:none;
+    border-left:none;
+    border-right:none;
+    padding:10px;
+    background: #EEE;
+    border-radius: 5px;
+}
+
+.bigButton
+{
+    margin: 5px;
+    background: #EDEDED;
+    width: 300px;
+    cursor: pointer;
+    height:50px;
+    border-radius: 15px;
+}
+
+.bigButton:hover
+{
+    background:#9BF990; 
+}
+
+#rmvote.bigButton
+{
+    background: #9BF990;
+}
+
+#rmvote.bigButton:hover
+{
+    background: #FC7171;
+}
+
+#thankyouArea
+{
+    background:#D3D3D3;
+    border-radius: 15px;
+    padding:5px;
+}
+
+.float_left
+{
+    position: fixed;
+    display: none;
+    width:200px;
+    padding:20px;
+    -webkit-border-radius: 0px 0px 0px 20px;
+    border-radius: 0px 0px 0px 20px;
+    background: #EAEAEA;
+    top:0px;
+    right:0px;
+}

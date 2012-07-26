@@ -1,0 +1,23 @@
+<template name="create_poll">
+    <center>
+    <h3>Create a new ThisOrThat</h3>
+    Question: <input id="pollname" type="text" style="width: 500px;" />?<br />
+    Option 1:<input id="option1" type="text" style="width: 200px;"/><br />
+    Option 2:<input id="option2" type="text" style="width: 200px;" /><br />
+    <button type="button" id="startpoll">Create Poll</button>
+    <br />
+    <br />
+    <h3>Trending Polls Right Now</h3>
+    <div style="width:600px; text-align: left;">
+    <ol>
+    {{#each trendingpolls}}
+        {{> trending_item}}
+    {{/each}}
+    <ol>
+    </div>
+    </center>
+</template>
+
+<template name="trending_item">
+    <li><a href="/{{poll}}">{{poll_name}}?</a><br /><b>{{poll_opt1}}</b> or <b>{{poll_opt2}}</b></li>
+</template>

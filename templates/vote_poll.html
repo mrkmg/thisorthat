@@ -1,0 +1,36 @@
+<template name="vote_poll">
+    {{> vote_poll_chart}}
+    {{> vote_poll_top}}
+    <center><div class="fb-like" data-send="true" data-width="610" data-show-faces="true"></div><br />
+    <a href="/">Create your own ThisOrThat</a></center>
+    <div id="alert_box" class="float_left"></div>
+</template>
+
+<template name="vote_poll_top">
+    <center><table>
+        <tr>
+            <td id="{{#if did_vote_1}}rmvote{{else}}vote1{{/if}}" class="bigButton" align="center">
+                {{option1}}
+            </td>
+            <td id="{{#if did_vote_2}}rmvote{{else}}vote2{{/if}}" class="bigButton" class="bigButton" align="center">
+                {{option2}}
+            </td>
+        </tr>
+        {{#if did_vote}}
+        <tr>
+            <td id="thankyouArea" align="center" colspan="2">
+                Thanks for voting!<br />
+                Share this poll with others, then stay on this page and watch the votes as they happen.
+            </td>
+        </tr>
+        {{/if}}
+        <tr>
+            <td colspan="2"  align="center">{{poll_link}}</td>
+        </tr>
+    </table></center>
+</template>
+
+<template name="vote_poll_chart">
+    <div id="graph"></div>
+    {{show_graph}}
+</template>

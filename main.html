@@ -1,0 +1,30 @@
+<head>
+  <title>This or That</title>
+  <meta property="og:title" content="This or That: The Live Poll" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="This or That: The Live Poll" />
+  <meta property="og:description" content="This or That is a simple two option poll/vote platform. Watch people vote in Real Time, see the battle as it happens." />
+</head>
+
+<body>
+  <div id="fb-root"></div>
+  {{> maincontrol}}
+  <div style="text-align: center; width: 300px;font-size: small; color:#BBB;margin: auto auto;">ThisOrThat was created by Kevin Gravier</div>
+</body>
+
+<template name="maincontrol">
+  {{#if page_is "vote_poll"}}
+    {{> vote_poll}}
+  {{/if}}
+  {{#if page_is "loading"}}
+    {{> loading}}
+  {{/if}}
+  {{#if page_is "create_poll"}}
+    {{> create_poll}}
+  {{/if}}
+</template>
+
+<template name="loading">
+  <center><h1>LOADING</h1>
+  <h4>Please Wait</h4></center>
+</template>
